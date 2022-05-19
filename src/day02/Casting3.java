@@ -17,6 +17,7 @@ public class Casting3 {
         System.out.println(d + e);
 
         char f = (char) (d + e);
+
         System.out.println("f = " + f);
 
         System.out.println(3.0 + 5);
