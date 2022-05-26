@@ -56,5 +56,16 @@ public class StringMethod {
                 System.out.println("이미지 파일이 아닙니다.");
         }
 
+        // 문자열의 정수 변환
+        System.out.println("=====================");
+        String s1 = "100";
+        String s2 = "200";
+
+        // 문자열 -> 정수 : Integer.parseInt(str)
+        // 문자열 -> 실수 : Double.parseDouble(str)
+        // 문자열이아닌것 -> 문자열 : String.valueOf(data)
+        int sum = Integer.parseInt(s1) + Integer.parseInt(s2);
+        System.out.println("sum = " + sum);
+
     }
 }
