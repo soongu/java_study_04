@@ -7,6 +7,7 @@ import day08.car.자동차;
 public class 운전자 {
 
     자동차 내차;
+    private String 비밀일기;
 
     void 운전하다() {
         내차.시동을걸다();

@@ -4,6 +4,8 @@ public class PersonMain {
 
     public static void main(String[] args) {
 
-        Person person = new Person("홍길동");
+        Person p = new Person("홍길동");
+
+        System.out.println(p.age);
     }
 }
