@@ -18,6 +18,7 @@ public class Main {
         // 계좌 생성
         park.makeAccount(shinhan);
         kim.makeAccount(woori);
+        kim.makeAccount(shinhan);
 
         // 입금
         park.deposit(80000);
