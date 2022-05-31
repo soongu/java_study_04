@@ -8,14 +8,14 @@ public class Person {
     Account myAccount;
 
     // 생성자
-    Person(String name) {
+    public Person(String name) {
         this.name = name;
         this.money = 0;
         this.myAccount = null;
     }
 
     // 계좌 개설 기능
-    void makeAccount(Bank bank) {
+    public void makeAccount(Bank bank) {
         // 신규 계좌 생성
         this.myAccount = new Account(this);
         // 신규 계좌의 은행명 필드 초기화
@@ -27,7 +27,7 @@ public class Person {
     }
 
     // 입금 기능
-    void deposit(int depositMoney) {
+    public void deposit(int depositMoney) {
         if (money >= depositMoney) {
             // 내 통장 잔액 증가
             myAccount.balance += depositMoney;
@@ -42,7 +42,7 @@ public class Person {
     }
 
     // 계좌 이체 기능
-    void sendMoney(Person target, int money) {
+    public void sendMoney(Person target, int money) {
         if (this.myAccount.balance >= money) {
             // 상대방의 예금잔액이 이체액만큼 증가
             target.myAccount.balance += money;
@@ -56,8 +56,12 @@ public class Person {
     }
 
     // 잔액 조회 기능
-    void checkBalance() {
+    public void checkBalance() {
         System.out.printf("%s님의 현재 예금 잔액은 %d원입니다.\n"
                             , this.name, this.myAccount.balance);
+    }
+
+    public Account getMyAccount() {
+        return myAccount;
     }
 }

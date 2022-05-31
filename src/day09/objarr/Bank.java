@@ -14,14 +14,14 @@ public class Bank {
     int accountCount;
 
     // 생성자
-    Bank(String bankName, int accountCount) {
+    public Bank(String bankName, int accountCount) {
         this.bankName = bankName;
         this.accountCount = 0;
         this.accounts = new Account[accountCount];
     }
 
     // 신규 계좌 등록 기능
-    void registry(Account newAccount) {
+    public void registry(Account newAccount) {
 
 
         // 등록 가능한지 여부 : 총 계좌 등록 제한개수를 넘지않았는가
@@ -35,7 +35,7 @@ public class Bank {
     }
 
     // 등록된 모든 계좌 조회 기능
-    void showAccounts() {
+    public void showAccounts() {
         System.out.printf("======= [%s은행] 등록계좌 (총 %d개) =======\n"
                                     , this.bankName, this.accountCount);
         for (int i = 0; i < accountCount; i++) {

@@ -9,8 +9,11 @@ public class Account {
     Person owner;
 
     // 생성자
-    Account(Person p) {
+    public Account(Person p) {
         this.owner = p;
     }
 
+    public int getBalance() {
+        return balance;
+    }
 }
