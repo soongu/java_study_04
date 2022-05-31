@@ -156,11 +156,25 @@ public class MemberController {
      * @return 삭제성공시 true, 회원이 존재하지 않아 실패시 false
      */
     public boolean delete(String id) {
-        return true;
+        int index = findIndexById(id);
+
+        if (index != -1) {
+            int count = existMemberNum();
+            for (int i = index; i < count - 1; i++) {
+                m[i] = m[i+1];
+            }
+            // 기존 마지막 멤버자리의 주소를 null로 변경
+            m[count - 1] = null;
+            return true;
+        }
+        return false;
     }
 
     //회원정보 전체 삭제
     public void delete() {
-
+        int count = existMemberNum();
+        for (int i = 0; i < count; i++) {
+            m[i] = null;
+        }
     }
 }

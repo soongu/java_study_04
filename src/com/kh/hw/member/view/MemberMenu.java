@@ -49,6 +49,7 @@ public class MemberMenu {
                     break;
                 case 4:
                     // 회원 탈퇴
+                    deleteMember();
                     break;
                 case 5:
                     // 전체 조회 출력
@@ -62,6 +63,66 @@ public class MemberMenu {
                 default:
                     System.out.println("잘못 입력했습니다. 다시 입력하세요!");
             }
+        }
+    }
+
+    // 4번 메뉴 처리 메서드
+    private void deleteMember() {
+        System.out.println("\n======= 회원 정보 삭제 =======");
+        System.out.println("# 1. 특정 회원 삭제하기");
+        System.out.println("# 2. 모든 회원 삭제하기");
+        System.out.println("# 9. 메인으로 돌아가기");
+
+        int menu = inputNumber("- 메뉴 입력: ");
+        switch (menu) {
+            case 1:
+                delete();
+                break;
+            case 2:
+                deleteAll();
+                break;
+            case 9:
+                return;
+            default:
+                System.out.println("메뉴를 잘못 입력했습니다.");
+        }
+
+    }
+
+    private void delete() {
+
+        String targetId = inputStr("\n# 삭제 대상 아이디:");
+
+        if (mc.checkId(targetId)) {
+            System.out.println("\n# 회원 정보가 삭제됩니다. [Y/N]");
+            String answer = inputStr(">> ");
+
+            switch (answer.toUpperCase().charAt(0)) {
+                case 'Y': case 'ㅛ':
+                    mc.delete(targetId);
+                    System.out.printf("\n- [%s]회원님의 데이터가 삭제되었습니다.\n", targetId);
+                    break;
+                case 'N': case 'ㅜ':
+                    System.out.println("\n- 삭제를 취소합니다.");
+                    break;
+            }
+
+        }
+    }
+
+    private void deleteAll() {
+
+        System.out.println("\n# 모든 정보가 삭제됩니다. [Y/N]");
+        String answer = inputStr(">> ");
+
+        switch (answer.toUpperCase().charAt(0)) {
+            case 'Y': case 'ㅛ':
+                mc.delete();
+                System.out.println("\n- 모든 데이터가 삭제되었습니다.");
+                break;
+            case 'N': case 'ㅜ':
+                System.out.println("\n- 삭제를 취소합니다.");
+                break;
         }
     }
 
