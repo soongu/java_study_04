@@ -61,8 +61,8 @@ public class MemberController {
      * - 못 찾은 경우 null 리턴
      */
     public Member searchId(String inputId) {
-
-        return null;
+        int index = findIndexById(inputId);
+        return (index != -1) ? m[index] : null;
     }
 
     /**
@@ -71,7 +71,21 @@ public class MemberController {
      * @return 동명이인 포함 해당 이름과 일치하는 모든 회원정보 배열
      */
     public Member[] searchName(String name) {
-        return null;
+
+        // 임시 배열 생성
+        Member[] temp = new Member[SIZE];
+        int count = 0;
+        for (int i = 0; i < existMemberNum(); i++) {
+            if (name.equals(m[i].getName())) {
+                temp[count++] = m[i];
+            }
+        }
+        // 리턴할 배열
+        Member[] returned = new Member[count];
+        for (int i = 0; i < returned.length; i++) {
+            returned[i] = temp[i];
+        }
+        return returned;
     }
 
     /**
@@ -82,6 +96,11 @@ public class MemberController {
      * @return - 변경 성공 여부
      */
     public boolean updatePassword(String id, String newPassword) {
+        Member member = searchId(id);
+        if (member != null) {
+            member.setPassword(newPassword);
+            return true;
+        }
         return false;
     }
 
@@ -91,7 +110,12 @@ public class MemberController {
      * @return 수정 성공시 true
      */
     public boolean updateName(String id, String newName) {
-        return true;
+        Member member = searchId(id);
+        if (member != null) {
+            member.setName(newName);
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -100,6 +124,11 @@ public class MemberController {
      * @return 수정 성공시 true
      */
     public boolean updateEmail(String id, String newEmail) {
+        Member member = searchId(id);
+        if (member != null) {
+            member.setEmail(newEmail);
+            return true;
+        }
         return false;
     }
 
