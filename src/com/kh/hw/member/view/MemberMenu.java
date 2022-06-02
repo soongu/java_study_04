@@ -2,8 +2,6 @@ package com.kh.hw.member.view;
 
 import com.kh.hw.member.controller.MemberController;
 import com.kh.hw.member.model.vo.Member;
-import day09.objarr.Account;
-import day09.objarr.Person;
 
 import java.util.Scanner;
 
