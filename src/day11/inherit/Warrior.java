@@ -8,6 +8,7 @@ public class Warrior extends Player {
     public Warrior(String name) {
         super(name); // Player()
 //        System.out.println("Warrior 생성자 호출!");
+
     }
 
     public void rush() {
