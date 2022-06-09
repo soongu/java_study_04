@@ -1,7 +1,5 @@
 package day12.static_;
 
-import com.kh.hw.person.model.vo.Person;
-
 public class Calculator {
 
     public String company; //제조사

@@ -13,7 +13,7 @@ public class PersonMenu {
 
     public PersonMenu() {
         sc = new Scanner(System.in);
-        pc = new PersonController();
+        pc = PersonController.getInstance();
         mainMenu();
     }
 

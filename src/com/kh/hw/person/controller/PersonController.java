@@ -8,9 +8,18 @@ public class PersonController {
     private Student[] s;
     private Employee[] e;
 
-    public PersonController() {
+    private static PersonController con;
+    static {
+        con = new PersonController();
+    }
+
+    private PersonController() {
         s = new Student[3];
         e = new Employee[10];
+    }
+
+    public static PersonController getInstance() {
+        return con;
     }
 
     public int[] personCount() {
