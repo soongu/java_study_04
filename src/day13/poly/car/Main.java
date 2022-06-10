@@ -67,5 +67,25 @@ public class Main {
 
 //        int i = Util.inputN("정수: ");
 
+        Util.line();
+
+        CarShop shop = new CarShop();
+        int money = shop.sellCar(new Mustang());
+        System.out.println("money = " + money);
+
+        Util.line();
+
+        cast("m1");
+
+    } // end main
+
+    public static void cast(Object o) {
+        if (o instanceof String) {
+            String s = (String) o;
+            System.out.println("스트링 변환 성공!");
+        } else {
+            System.out.println("변환 불가능!");
+        }
     }
+
 }
