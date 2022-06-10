@@ -6,4 +6,8 @@ public class Mustang extends Car {
     public void run() {
         System.out.println("머스탱이 달립니다.");
     }
+
+    public void joinMustangClub() {
+        System.out.println("머스탱 동호회에 가입합니다.");
+    }
 }
