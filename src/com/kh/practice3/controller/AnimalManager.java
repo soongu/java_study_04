@@ -15,6 +15,7 @@ public class AnimalManager {
         animals[3] = new Dog("불도긔", "불독", 5);
         animals[4] = new Dog("치치", "치와와", 2);
 
+
         for (Animal a : animals) {
             a.speak();
         }
