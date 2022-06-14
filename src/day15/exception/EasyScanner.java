@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class EasyScanner {
 
+
     private static Scanner sc;
     static {
         sc = new Scanner(System.in);
