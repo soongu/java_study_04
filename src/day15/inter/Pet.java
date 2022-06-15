@@ -1,5 +1,7 @@
 package day15.inter;
 
+
+
 // 인터페이스: 객체의 규격(기능)을 표준화해서 명세하는 역할
 public interface Pet {
 
@@ -9,6 +11,12 @@ public interface Pet {
     String PLAY_GROUND = "애완동물 카페"; // 애완동물이 노는 장소
 
     void play(); // 애완동물이 노는 기능
+
+    default void smile() {}
+
+    static void m1() {
+        System.out.println("hello");
+    }
 
 
 }

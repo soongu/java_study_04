@@ -24,6 +24,6 @@ public class Util {
     }
 
     public static void line() {
-        System.out.println("===========================");
+        System.out.println("=============================================");
     }
 }

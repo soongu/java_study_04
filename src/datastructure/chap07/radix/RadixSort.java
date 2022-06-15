@@ -1,5 +1,9 @@
 package datastructure.chap07.radix;
 
+import datastructure.chap06.bubble.BubbleSort;
+import datastructure.chap06.insertion.InsertionSort;
+import datastructure.chap06.selection.SelectionSort;
+
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -67,18 +71,27 @@ public class RadixSort {
             }
 
         }// end outer for (digit)
-
-
-
     }
 
     public static void main(String[] args) {
 
-        int[] arr = {753, 427, 450, 422, 220,
-                125, 332, 339, 1990, 660};
+//        int[] arr = {753, 427, 450, 422, 220,
+//                125, 332, 339, 1990, 660};
 
-        sort(arr);
+        int[] arr = new int[100000];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = arr.length - i;
+        }
 
-        System.out.println("정렬 후: " + Arrays.toString(arr));
+        long s = System.currentTimeMillis();
+//        Arrays.sort(arr);         // 16
+//        sort(arr);                // 94
+//        BubbleSort.sort(arr);     // 4232
+//        SelectionSort.sort(arr);  // 3688
+//        InsertionSort.sort(arr);  // 1782
+        long e = System.currentTimeMillis();
+        System.out.println(e - s);
+
+//        System.out.println("정렬 후: " + Arrays.toString(arr));
     }
 }

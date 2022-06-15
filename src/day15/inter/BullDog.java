@@ -5,4 +5,9 @@ public class BullDog extends Dog implements Pet, Huntable {
     public void hunt(String target) {
 
     }
+
+    @Override
+    public void smile() {
+
+    }
 }
