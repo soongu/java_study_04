@@ -1,10 +1,10 @@
 package datastructure.chap02.linkedlist.singly;
 
 // 연결 리스트의 첫번째 데이터가 들어있는 노드를 저장
-public class HeaderNode {
+public class HeaderNode<E> {
 
     // 첫번째 노드 객체의 주소 저장
-    private Node firstNode;
+    private Node<E> firstNode;
 
     // 생성자
     public HeaderNode() {
@@ -14,12 +14,12 @@ public class HeaderNode {
     }
 
     // 헤더노드의 포인터(주소)를 셋팅하는 기능
-    public void setFirstNode(Node firstNode) {
+    public void setFirstNode(Node<E> firstNode) {
         this.firstNode = firstNode;
     }
 
     // 헤더노드가 감시하는 첫번째 노드의 주소를 반환
-    public Node getFirstNode() {
+    public Node<E> getFirstNode() {
         return firstNode;
     }
 
