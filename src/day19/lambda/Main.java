@@ -3,9 +3,12 @@ package day19.lambda;
 import utility.Util;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static day19.lambda.Apple.Color.*;
+import static day19.lambda.Book.Genre.*;
 import static day19.lambda.FilteringApple.*;
 
 public class Main {
@@ -88,6 +91,42 @@ public class Main {
 
 
         Extract ex = String::substring;
+
+        Util.line();
+
+        List<Book> bookList = new ArrayList<>();
+        bookList.addAll(
+                Arrays.asList(
+                        new Book(10000, HISTORY)
+                        , new Book(20000, ESSAY)
+                        , new Book(15000, HISTORY)
+                        , new Book(14000, BIBLE)
+                        , new Book(17000, COMICS)
+                        , new Book(13000, COMICS)
+                )
+        );
+
+        // 만화책만 전부 필터링
+        List<Book> filteredBooks
+                = filter(bookList, b -> b.getGenre() == COMICS);
+
+        for (Book fb : filteredBooks) {
+            System.out.println(fb);
+        }
+
+        // 정수 리스트
+        List<Integer> numbers = Arrays.asList(1,2,3,4,5,6,7,8,9,10);
+
+        // 홀수만 필터링
+        List<Integer> integers = filter(numbers, n -> n % 3 == 0);
+        for (Integer n : integers) {
+            System.out.println(n);
+        }
+
+        List<Integer> integerList = numbers.stream()
+                                    .filter(n -> n % 2 == 0)
+                                    .collect(Collectors.toList());
+        System.out.println(integerList);
 
     }
 }

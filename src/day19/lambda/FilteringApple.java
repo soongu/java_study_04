@@ -56,7 +56,9 @@ public class FilteringApple {
      *  b. 특정 조건을 설정할 구현 클래스를 정의하고 기능을 오버라이딩
      *  c. 위 내용을 기반으로 필터 메서드들을 사용.
      *
-     * @problem - 필터조건별 클래스가 너무 많아진다. 익명 클래스로 해결하면 된다.
+     * @problem
+     * - 필터조건별 클래스가 너무 많아진다. 익명 클래스로 해결하면 된다.
+     * - 필터 대상이 Apple이 아니라면?
      */
 
     // solution a
@@ -90,5 +92,23 @@ public class FilteringApple {
             }
         }
         return resultList;
+    }
+
+    /**
+     * @solution - try 4 : 타입을 제네릭타입으로 처리
+     */
+    interface Predicate<T> {
+        boolean test(T t);
+    }
+
+    // 제네릭 필터 메서드 생성
+    public static <T> List<T> filter(List<T> list, Predicate<T> p) {
+        List<T> result = new ArrayList<>();
+        for (T t : list) {
+            if (p.test(t)) {
+                result.add(t);
+            }
+        }
+        return result;
     }
 }
