@@ -1,5 +1,7 @@
 package datastructure.chap10.binarytree;
 
+import java.util.Stack;
+
 class Node {
     private int data; // 트리에 저장할 데이터
     private Node leftChild;  // 왼쪽 자식
@@ -236,15 +238,17 @@ public class BinaryTree {
         Node candidateParent = deleteNode;
         Node candidate = candidateParent.getRightChild();
 
-        // 삭제노드 오른족 자식의 왼쪽 자식 찾기
+        // 삭제노드 오른쪽 자식의 왼쪽 자식 찾기
         while (candidate.getLeftChild() != null) {
             candidateParent = candidate;
             candidate = candidate.getLeftChild();
         }
 
-        // 후보노드가 삭제노드 오른쪽 자식의 왼쪽자식일 때
+        // 후보노드가 삭제노드 왼쪽자식일 때
         if (candidate != deleteNode.getRightChild()) {
+            // 1단계
             candidateParent.setLeftChild(candidate.getRightChild());
+            // 2단계
             candidate.setRightChild(deleteNode.getRightChild());
         }
 
@@ -261,4 +265,53 @@ public class BinaryTree {
     public Node getRoot() {
         return root;
     }
+
+    //================= 트리 출력 ======================//
+    public void display() {
+        Stack<Node> globalStack = new Stack<>();
+        globalStack.push(root);
+
+        int blank = 32;
+        boolean isRowEmpty = false;
+
+        while (!isRowEmpty) {
+            Stack<Node> localStack = new Stack<>();
+            isRowEmpty = true;
+
+            for (int i = 0; i < blank; i++) {
+                System.out.print(" ");
+            }
+
+            while (!globalStack.isEmpty()) {
+                Node temp = globalStack.pop();
+
+                if (temp != null) {
+                    System.out.print(temp.getData());
+                    localStack.push(temp.getLeftChild());
+                    localStack.push(temp.getRightChild());
+
+                    if (temp.getLeftChild() != null || temp.getRightChild() != null) {
+                        isRowEmpty = false;
+                    }
+                } else {
+                    System.out.print("**");
+                    localStack.push(null);
+                    localStack.push(null);
+                }
+                for (int i = 0; i < blank * 2 - 2; i++) {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+            blank /= 2;
+
+            while (!localStack.isEmpty()) {
+                globalStack.push(localStack.pop());
+            }
+        }
+        System.out.println();
+    }
+
+
+
 }
